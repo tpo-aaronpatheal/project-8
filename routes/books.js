@@ -15,10 +15,10 @@ function asyncHandler(cb){
   }
 
 /* GET home page. */
-router.get('/', async() =>
+router.get('/', asyncHandler(async(req, res) => {
+  const books = await book.findAll();
+  console.log(books.map(book => book.res.json()));
+}));
 
-) {
-  
-});
 
 module.exports = router;
