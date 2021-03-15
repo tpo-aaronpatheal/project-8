@@ -16,8 +16,8 @@ function asyncHandler (cb) {
 
 /* GET home page. */
 router.get('/', asyncHandler(async (req, res) => {
-  // const books = await Book.findAll();
-  res.render('index');
+  const books = await Book.findAll();
+  res.render('index', {books, title: Book.title, author: Book.author, genre: Book.genre, year: Book.year});
 }));
 
 router.get('/new', (req, res) => {
