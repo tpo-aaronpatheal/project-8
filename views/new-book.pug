@@ -7,6 +7,8 @@ block content
     body
         h1 New Book
 
+        include validate-error
+
         form(action='/books', method='post')
             p
                 label(for='title') Title

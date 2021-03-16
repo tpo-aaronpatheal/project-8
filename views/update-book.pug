@@ -7,6 +7,8 @@ block content
         link(rel='stylesheet', href='/static/stylesheets/style.css')
     h1 Update Book
 
+    include validate-error
+
     form(action="/books/" + book.id + "/update", method="post")
         p
             label(for='title') Title
