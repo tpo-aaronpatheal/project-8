@@ -1,6 +1,10 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  nav.nav
+    a(href='/')
+      span &larr;
+      |  Back
+  h1= err.message
+  h2= err.status
+  pre= err.stack

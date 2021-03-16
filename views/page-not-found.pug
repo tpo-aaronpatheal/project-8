@@ -1,0 +1,13 @@
+extends layout
+block content
+  
+  nav.nav
+    a(href='/')
+      span &larr;
+      |  Back
+  head
+    title Page Not Found
+    link(rel='stylesheet', href='/static/stylesheets/style.css')
+  body
+    h1 Hmmm, something's wrong here
+    h2= err.message
