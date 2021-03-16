@@ -5,7 +5,7 @@ block content
     title Books
     link(rel='stylesheet', href='/static/stylesheets/style.css')
   body
-    h1 Books
+    h1 Aaron and Company
     p
       a.button(href='books/new') Create New Book
     table
@@ -20,7 +20,7 @@ block content
           Book
             tr
               td 
-                a(href='book_detail.html')= Book.title
+                a(href='books/' + Book.id)= Book.title
               td= Book.author
               td= Book.genre
               td= Book.year
