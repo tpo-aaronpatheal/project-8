@@ -6,7 +6,7 @@ block content
         link(rel='stylesheet', href='/static/stylesheets/style.css')
     body
         h1 New Book
-        form
+        form(action='/books' method='post')
         p
             label(for='title') Title
             input#title(name='title' type='text')

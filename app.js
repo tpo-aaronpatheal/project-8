@@ -6,6 +6,7 @@ const db = require('./models');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const morgan = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/static', express.static('public'));
 
+app.use(morgan());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
