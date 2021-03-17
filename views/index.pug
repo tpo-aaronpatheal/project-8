@@ -7,7 +7,8 @@ block content
   body.frontpage
     h1.title Aaron and Company
     p
-      a.button(href='books/new') Create New Book
+      if !path
+        a.button(href='books/new') Create New Book
 
       form(action='/books/search/' method="get")
          p

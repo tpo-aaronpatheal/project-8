@@ -24,18 +24,23 @@ router.get('/', asyncHandler(async (req, res) => {
 // search route
 router.get('/search/*', asyncHandler(async (req, res) => {
   let searchTerm = req.query.search;
+  let path = req.path
  
   const books = await Book.findAll(
     { where: 
       {
-        [Op.or]: [{ title: searchTerm}, { author: searchTerm }, { genre: searchTerm }, { year: searchTerm }]
-      }
+        [Op.or]: [{ title: {[Op.substring]: searchTerm}}, 
+        { author: {[Op.substring]: searchTerm }}, 
+        { genre: {[Op.substring]: searchTerm }}, 
+        { year: {[Op.substring]:searchTerm }}]
+      },
+      order: [["year", 'ASC']]
     });
 
   
   console.log(books)
 
-  res.render('index', { books, searchTerm });
+  res.render('index', { books, searchTerm, path });
 }));
 
 /* GET new book*/
@@ -88,7 +93,6 @@ router.post('/', asyncHandler(async (req, res) => {
     res.redirect('/books/' + book.id);
   } catch (error) {
     if (error.name === 'SequelizeValidationError') {
-      console.log(error)
       book = await Book.build(req.body);
       res.render('new-book', { book, errors: error.errors });
     } else {
