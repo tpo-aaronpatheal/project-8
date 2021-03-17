@@ -4,13 +4,13 @@ block content
   head
     title Books
     link(rel='stylesheet', href='/static/stylesheets/style.css')
-  body
-    h1 Aaron and Company
+  body.frontpage
+    h1.title Aaron and Company
     p
       a.button(href='books/new') Create New Book
     table
       thead
-        tr
+        tr.column
           th Title
           th Author
           th Genre
@@ -18,8 +18,8 @@ block content
       tbody
         each Book in books
           Book
-            tr
-              td 
+            tr.columnList
+              td
                 a(href='books/' + Book.id)= Book.title
               td= Book.author
               td= Book.genre

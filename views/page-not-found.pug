@@ -1,13 +1,18 @@
-extends layout
+extends layout.pug
+
 block content
   
+
   nav.nav
     a(href='/')
       span &larr;
-      |  Back
+      |  Click here to go back
+
   head
     title Page Not Found
     link(rel='stylesheet', href='/static/stylesheets/style.css')
-  body
+  body.error
     h1 Hmmm, something's wrong here
     h2= err.message
+
+  

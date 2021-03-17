@@ -4,14 +4,14 @@ body {
 }
 
 a {
-  color: #019875;
+  color: #37358d;
   text-decoration: none;
   font-weight: bold;
   transition: 0.4s;
 }
 
   a:hover {
-    color: black;
+    color: rgb(10, 7, 241);
   }
 
 a.button, input[type=submit] {
@@ -24,6 +24,7 @@ a.button, input[type=submit] {
   cursor: pointer;
 }
 
+
 form a.button, input[type=submit] {
   margin-left: 140px;
   transition: 0.4s;
@@ -34,7 +35,7 @@ input[type=submit] {
 }
 
   a.button:hover, input[type=submit]:hover {
-    background-color: #01b189;
+    background-color: #094669;
   }
 
 p {
@@ -54,7 +55,7 @@ h2 {
 }
 
 th {
-  border-bottom: 2px solid #D8B493;
+  border-bottom: 2px solid #faf612;
   text-align: left;
   padding: 5px 20px 5px 10px;
 }
@@ -93,5 +94,54 @@ input[type=text] {
 }
 
 .error {
-  color: rgb(236, 15, 15);
+  color: rgb(0, 0, 0);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-image: url(/static/images/lost.jpg);
+  background-size: 40%;
+}
+
+.fivehundred {
+  color: red;
+  font-family: "Didot", serif;
+  font-size: 18px;
+  transition: 0.5s
+}
+
+.title {
+  color: #37358d
+}
+
+.frontpage {
+  background-repeat: no-repeat;
+  background-position: 75% 50%;
+  background-attachment: fixed;
+  background-image: url(/static/images/frontpage.jpg);
+}
+
+.column {
+  color: #37358d
+}
+
+.columnList {
+  color: #37358d
+}
+
+.newbook {
+  background-repeat: no-repeat;
+  background-position: 85% 45%;
+  background-attachment: fixed;
+  background-image: url(/static/images/newbook.jpg);
+  background-size: 1000px;
+  background-color: rgba(240, 184, 138, 0.514);
+}
+
+.updatebook {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url(/static/images/updatebook.jpg);
+  background-position: 75% 50%;
+  background-size: 1000px;
+  background-color: rgb(177, 215, 226);
 }
