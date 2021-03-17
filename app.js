@@ -1,12 +1,8 @@
-// require sequilize and use constructor to connect to database. Sequilize now holds the instance that can be interacted with.
-
 // require/import sequelize from index.js
 const db = require('./models');
 
-const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const morgan = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -22,7 +18,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/static', express.static('public'));
 
-app.use(morgan());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
@@ -57,7 +52,7 @@ app.use((err, req, res, next) => {
   }
   
   if (err) {
-    console.log(err.status, err.message);
+    console.log(err.status, err.message, err.stack);
     res.status(err.status || 500).render('error', { err });
   }
 
