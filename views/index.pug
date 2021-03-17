@@ -8,7 +8,7 @@ block content
     h1.title Aaron and Company
     p
       if !path
-        a.button(href='books/new') Create New Book
+        a.button(href='/books/new') Create New Book
 
       form(action='/books/search/' method="get")
          p
@@ -28,7 +28,11 @@ block content
           Book
             tr.columnList
               td
-                a(href='books/' + Book.id)= Book.title
+                a(href='/books/' + Book.id)= Book.title
               td= Book.author
               td= Book.genre
               td= Book.year
+  if buttons
+    p
+      each button in buttons
+        a.button(href='/books/page/' + button)= button

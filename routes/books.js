@@ -15,10 +15,27 @@ function asyncHandler(cb) {
   };
 }
 
+const addPagination = (list) => {
+  const numOfButtons = Math.ceil(list.length/10);
+  let buttons = [];
+
+  for (i=1; i <= numOfButtons; i++) {
+      buttons.push(i);
+  };
+
+  return buttons;
+}
+
 /* GET home page. */
-router.get('/', asyncHandler(async (req, res) => {
-  const books = await Book.findAll();
-  res.render('index', { books });
+router.get('/page/:id', asyncHandler(async (req, res) => {
+  const currentPage = req.params.id
+  const books = await Book.findAll({
+    limit: 10,
+    offset: (10 * currentPage) - 10
+  });
+  const buttons = addPagination(await Book.findAll());
+  console.log(buttons);
+  res.render('index', { books, buttons });
 }));
 
 // search route
@@ -36,9 +53,6 @@ router.get('/search/*', asyncHandler(async (req, res) => {
       },
       order: [["year", 'ASC']]
     });
-
-  
-  console.log(books)
 
   res.render('index', { books, searchTerm, path });
 }));
