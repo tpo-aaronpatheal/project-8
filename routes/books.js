@@ -15,6 +15,7 @@ function asyncHandler(cb) {
   };
 }
 
+/* Pagination function */
 const addPagination = (list) => {
   const numOfButtons = Math.ceil(list.length/10);
   let buttons = [];
@@ -71,6 +72,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
   }
 }));
 
+/* Post updates */
 router.post('/:id/update', asyncHandler(async (req, res) => {
   let book;
   try {
@@ -88,6 +90,7 @@ router.post('/:id/update', asyncHandler(async (req, res) => {
   }
 }));
 
+/* execute delete */
 router.post('/:id/delete', asyncHandler(async (req, res) => {
   const book = await Book.findByPk(req.params.id);
   if (book) {
@@ -99,6 +102,7 @@ router.post('/:id/delete', asyncHandler(async (req, res) => {
 }
 ))
 
+/* create new book */
 router.post('/', asyncHandler(async (req, res) => {
   let book;
   try {
