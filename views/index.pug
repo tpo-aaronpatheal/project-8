@@ -10,6 +10,10 @@ block content
       if !path
         a.button(href='/books/new') Create New Book
 
+    p
+      if path
+        a.button(href='/books/page/1') Home
+
       form(action='/books/search/' method="get")
          p
             label(for='search', class='search')
