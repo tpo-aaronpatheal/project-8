@@ -27,6 +27,6 @@ block content
                 input(type='submit' value='Update Book')
         form(action="/books/" + book.id + "/delete", method="post" onsubmit="return confirm('Do you really want to delete this book?');")
             p
-                a.button(href='/books') Cancel
+                a.button(href='/books/page/1') Cancel
             p
                 input(type='submit' value='Delete Book')

@@ -34,7 +34,6 @@ router.get('/page/:id', asyncHandler(async (req, res) => {
     offset: (10 * currentPage) - 10
   });
   const buttons = addPagination(await Book.findAll());
-  console.log(buttons);
   res.render('index', { books, buttons });
 }));
 
@@ -93,7 +92,7 @@ router.post('/:id/delete', asyncHandler(async (req, res) => {
   const book = await Book.findByPk(req.params.id);
   if (book) {
     await book.destroy();
-    res.redirect('/books');
+    res.redirect('/books/page/1');
   } else {
     res.redirect('/404')
   }
