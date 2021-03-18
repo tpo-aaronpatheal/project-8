@@ -1,17 +1,14 @@
 extends layout.pug
 
 block content
-  
-
-  nav.nav
-    a(href='/')
-      span &larr;
-      |  Click here to go back
-
   head
     title Page Not Found
     link(rel='stylesheet', href='/static/stylesheets/style.css')
   body.error
+    nav.nav
+      a(href='/')
+        span &larr;
+        |  Click here to go back
     h1 Hmmm, something's wrong here
     h2= err.message
 
