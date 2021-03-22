@@ -39,22 +39,21 @@ app.use((req, res, next) => {
   const err = new Error('Not found');
   err.status = 404;
   err.message = 'Looks like someone took a wrong turn. Hit back to get back on track.';
-  res.render('page-not-found', { err });
+  throw(err);
 });
-
 
 // global error handler
 
 app.use((err, req, res, next) => {
+
   if (!err.status || !err.message) {
     err.status = 500;
     err.message = 'Oh no! Turn around, wrong way!';
   }
-  
-  if (err) {
-    console.log(err.status, err.message, err.stack);
-    res.status(err.status || 500).render('error', { err });
-  }
+
+  res.status(err.status);
+
+  err.status === 404 ? res.render('page-not-found', { err }) : res.render('error', { err });
 
 });
 

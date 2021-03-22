@@ -62,6 +62,10 @@ router.get('/new', (req, res) => {
   res.render('new-book', { book: {} });
 });
 
+router.get('/500error', asyncHandler(async (req, res) => {
+  throw(new Error(null));
+}));
+
 /*Get individual book */
 router.get('/:id', asyncHandler(async (req, res) => {
   const book = await Book.findByPk(req.params.id);
@@ -71,6 +75,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
     res.redirect('/404')
   }
 }));
+
 
 /* Post updates */
 router.post('/:id/update', asyncHandler(async (req, res) => {
